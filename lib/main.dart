@@ -36,13 +36,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _addImage() async {
     while (true) {
-      final List<String> newUrls = _urls.length < 2
+      final List<String> newUrls = _urls.length <= imagesAmount
           ? await ImageService.getImages()
           : await Future.wait([
               ImageService.getImages(),
-              Future.delayed(const Duration(milliseconds: 700))
+              Future.delayed(const Duration(milliseconds: 800))
             ]).then((futures) => futures[0]);
-       setState(() => _urls = [...newUrls]);
+      setState(() => _urls = [...newUrls]);
     }
   }
 

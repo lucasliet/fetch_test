@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
+const int imagesAmount = 3;
+
 class ImageService {
   static final List<String> _urls = [];
 
@@ -20,7 +22,7 @@ class ImageService {
   static Future<List<String>> getImages() async {
     String url = await _fetchImageUrl();
 
-    if (_urls.length > 2) {
+    if (_urls.length >= imagesAmount) {
       _urls.removeAt(0);
     }
     _urls.add(url);
