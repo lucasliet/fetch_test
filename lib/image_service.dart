@@ -18,12 +18,7 @@ class ImageService {
   }
 
   static Future<List<String>> getImages() async {
-    String url = _urls.length > 2
-        ? await _fetchImageUrl()
-        : await Future.wait([
-            _fetchImageUrl(),
-            Future.delayed(const Duration(milliseconds: 700))
-          ]).then((futures) => futures[0]);
+    String url = await _fetchImageUrl();
 
     if (_urls.length > 2) {
       _urls.removeAt(0);
