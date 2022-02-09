@@ -1,11 +1,15 @@
-image:
-  file: Dockerfile
+image: gitpod/workspace-flutter
 
 tasks:
 - before: >
-    source ~/.bashrc
+    source ~/.bashrc &&
+    flutter channel stable &&
+    cd ~/development/flutter &&
+    git checkout 2.10.0 &&
+    flutter precache
   init: >
-    cd workspace &&
+    cd /workspace/fetch_test/workspace &&
+    flutter pub get &&
     flutter run -d web-server --no-resident # prebuilds the app
   command: >
     flutter run -d web-server --web-port=8080 --web-hostname=0.0.0.0 --web-renderer html
