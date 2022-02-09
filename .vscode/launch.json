@@ -7,7 +7,7 @@
         "--web-renderer",
         "html",
       ],
-      "program": "lib/main.dart",
+      "program": "workspace/lib/main.dart",
       "request": "launch",
       "type": "dart"
     }

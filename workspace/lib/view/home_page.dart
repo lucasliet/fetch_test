@@ -2,6 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../service/image_service.dart';
 
+const Color _backgroundColor = Color(0xFFEEEEEE);
+const Duration _refreshTimer = Duration(milliseconds: 800);
+const double _mobileMaxWidth = 768;
+const double _appMargin = 12;
+const double _cornersRadius = 12;
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.title}) : super(key: key);
 
@@ -12,12 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const Color _backgroundColor = Color(0xFFEEEEEE);
-  static const Duration _refreshTimer = Duration(milliseconds: 800);
-  static const double _mobileMaxWidth = 768;
-  static const double _appMargin = 12;
-  static const double _cornersRadius = 12;
-
   static final imageService = ImageService();
 
   double _screenWidth = 0;
