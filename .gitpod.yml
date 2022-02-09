@@ -5,8 +5,7 @@ tasks:
     source ~/.bashrc &&
     flutter channel stable &&
     cd ~/development/flutter &&
-    git checkout 2.10.0 &&
-    flutter precache
+    git checkout 2.10.0
   init: >
     cd /workspace/fetch_test/workspace &&
     flutter pub get &&
