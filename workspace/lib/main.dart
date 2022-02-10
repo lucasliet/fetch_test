@@ -13,7 +13,7 @@ class FetchTest extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
       ),
-      home: const HomePage(title: 'IBAGENS!'),
+      home: const HomePage(),
     );
   }
 }
