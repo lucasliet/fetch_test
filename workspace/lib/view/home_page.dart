@@ -43,15 +43,43 @@ class _HomePageState extends State<HomePage> {
       color: _backgroundColor,
       child: SafeArea(
         child: Scaffold(
-          body: _urls.isEmpty
-              ? const Center(child: CircularProgressIndicator())
-              : Container(
+          body: Stack(
+            children: [
+              if (_urls.isEmpty)
+                const Center(child: CircularProgressIndicator())
+              else
+                Container(
                   height: double.infinity,
                   width: double.infinity,
                   color: _backgroundColor,
                   padding: const EdgeInsets.all(_appMargin),
                   child: _renderImages(_urls),
                 ),
+              Container(
+                margin: const EdgeInsets.only(top: _appMargin + 4),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(_cornersRadius - 4),
+                      child: Container(
+                        padding: const EdgeInsets.all(_appMargin),
+                        color: const Color(0x88EEEEEE),
+                        child: const Text(
+                          'IBAGENS!',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           floatingActionButton: FloatingActionButton(
             onPressed: () =>
                 setState(() => _urls = [...imageService.cleanUp()]),
